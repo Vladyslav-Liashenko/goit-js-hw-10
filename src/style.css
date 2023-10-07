@@ -36,8 +36,8 @@ img{
     width: 50%;
     height: 50%;
 }
-.cat-info {
-    margin-top: 20px;
+.breed-select{
+    margin-bottom: 20px;
 }
 .cat-card {
     display: flex;
