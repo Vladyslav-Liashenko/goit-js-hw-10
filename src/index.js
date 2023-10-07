@@ -53,8 +53,16 @@ brend.addEventListener("click", onload);
 
 serviceCat().then((data) => {
     console.log(data);
+    data.forEach(el => {
+        console.log(el);
+        const catCard = el.name;
+        console.log(catCard)
+    //   const option = document.createElement('option');
+    //   option.value = catCard.name;
+    //   option.text = catCard.name;
+    //   brend.appendChild(option.value);
+    });
 });
-
 
 function onload() {
     
@@ -65,7 +73,6 @@ function serviceCat(id) {
   const API_KEY =
     'live_byDUUQmQekkLRlI0L9gIRy8RBj14h6KEagneJBWPmRPtldgkqC5Hwb1BsoZTJwhN';
   const END_POINT = 'v1/breeds';
-
   const params = new URLSearchParams({
       api_key: API_KEY,
   });
@@ -74,7 +81,7 @@ function serviceCat(id) {
     if (!resp.ok) {
       throw new Error(`Fetch errorr with ${resp.status}: ${resp.statusText}`);
     }
-    return resp.json();
+      return resp.json();
   });
 };
 
