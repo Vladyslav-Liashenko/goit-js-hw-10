@@ -53,15 +53,13 @@ brend.addEventListener("click", onload);
 
 serviceCat().then((data) => {
     console.log(data);
-    data.forEach(el => {
-        console.log(el);
-        const catCard = el.name;
-        console.log(catCard)
-    //   const option = document.createElement('option');
-    //   option.value = catCard.name;
-    //   option.text = catCard.name;
-    //   brend.appendChild(option.value);
-    });
+    // data.forEach(el => {
+    // const catCard = el.name;
+    // const option = document.createElement('option');
+    // option.value = catCard.name;
+    // option.text = catCard.name; 
+    // brend.appendChild(option.value);
+    // });
 });
 
 function onload() {
@@ -84,5 +82,6 @@ function serviceCat(id) {
       return resp.json();
   });
 };
+
 
   
