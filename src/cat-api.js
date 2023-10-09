@@ -18,7 +18,6 @@ error.style.display = 'none';
 const brend = document.querySelector('.breed-select');
 const info = document.querySelector('.cat-info');
 info.style.listStyleType = "none";
-let idbreed;
 
 fetchWithAxios(BASE_URL_BREEDS)
   .get()
@@ -46,11 +45,12 @@ fetchWithAxios(BASE_URL_BREEDS)
 
 
 document.querySelector('.breed-select').addEventListener('change', function () {
-  idbreed = this.value;
+  const idbreed = this.value;
+
   error.style.display = 'none';
   loader.style.display = 'block';
 
-fetchWithAxios(BASE_URL_IMAGES)
+fetchWithAxios(BASE_URL_IMAGES, idbreed)
   .get()
   .then(resp => {
     if (resp.status !== 200) {
@@ -87,12 +87,12 @@ function createMarkup(cat) {
   `;
 }
 
-function fetchWithAxios(url) {
+function fetchWithAxios(url, idbreed) {
   const instance = axios.create({
     baseURL: url,
     timeout: 1000,
-    headers: { 'x-api-key': API_KEY, 'breed_id': idbreed },
-    breed_id: idbreed,
+    headers: { 'x-api-key': API_KEY },
+    breed_ids: idbreed,
   });
   return instance;
 }
