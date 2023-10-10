@@ -12,18 +12,17 @@ const info = document.querySelector('.cat-info');
 info.style.listStyleType = "none";
 
 getBreeds().then((data) => {
-        data.forEach(breed => {
-          const option = document.createElement('option');
-        //   option.value = breed.id;
-        option.value =  breed.reference_image_id
-          option.text = breed.name;
-          brend.appendChild(option);
-        });
-        loader.style.display = 'none';
-        new SlimSelect({
-          select: '.breed-select',
-        });
-      })
+  data.forEach(breed => {
+    const option = document.createElement('option');
+    option.value = breed.reference_image_id
+    option.text = breed.name;
+    brend.appendChild(option);
+  });
+  loader.style.display = 'none';
+  new SlimSelect({
+    select: '.breed-select',
+  });
+});
 
 document.querySelector('.breed-select').addEventListener('change', function () {
   const idbreed = this.value;
@@ -32,13 +31,10 @@ document.querySelector('.breed-select').addEventListener('change', function () {
 
   getCatsByBreed(idbreed).then(data => {
       info.innerHTML = '';
-    //   data.forEach(cat => {
-        info.insertAdjacentHTML('beforeend', createMarkup(data));
-    //   });
+      info.insertAdjacentHTML('beforeend', createMarkup(data));
       loader.style.display = 'none';
     })
     .catch(err => console.log(err));
-
 });
 
 function createMarkup(cat) {

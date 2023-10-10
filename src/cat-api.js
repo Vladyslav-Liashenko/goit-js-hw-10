@@ -2,8 +2,7 @@ import axios from 'axios';
 import SlimSelect from 'slim-select';
 import Notiflix from 'notiflix';
 
-const BASE_URL = "https://api.thecatapi.com/v1/"; //breeds
-//
+const BASE_URL = "https://api.thecatapi.com/v1/";
 
 const API_KEY =
   "live_byDUUQmQekkLRlI0L9gIRy8RBj14h6KEagneJBWPmRPtldgkqC5Hwb1BsoZTJwhN";
